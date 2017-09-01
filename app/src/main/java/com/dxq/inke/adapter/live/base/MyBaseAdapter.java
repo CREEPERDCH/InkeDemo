@@ -37,6 +37,10 @@ public abstract class MyBaseAdapter<T> extends RecyclerView.Adapter<MyBaseViewHo
         mOnItemClickListener = listener;
     }
 
+    public ArrayList<T> getData() {
+        return mList;
+    }
+
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }

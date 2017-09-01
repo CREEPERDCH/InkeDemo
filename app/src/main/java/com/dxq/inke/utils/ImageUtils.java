@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class ImageUtils {
@@ -34,6 +35,18 @@ public class ImageUtils {
         } else if (view instanceof ImageView) {
             //使用Glide UIL
             Log.e(getClass().getSimpleName() + " xmg", "loadImage: " + "普通图片未配置使用三方库来加载");
+        }
+    }
+
+    public void pause() {
+        if (!Fresco.getImagePipeline().isPaused()) {
+            Fresco.getImagePipeline().isPaused();
+        }
+    }
+
+    public void restart() {
+        if (Fresco.getImagePipeline().isPaused()) {
+            Fresco.getImagePipeline().resume();
         }
     }
 }

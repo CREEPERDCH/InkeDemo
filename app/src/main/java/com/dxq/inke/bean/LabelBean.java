@@ -3,7 +3,9 @@ package com.dxq.inke.bean;
  * Created by CREEPER_D on 2017/8/26.
  */
 
-public class LabelBean {
+import java.io.Serializable;
+
+public class LabelBean implements Serializable {
     String tab_key;
 
     public LabelBean(String tab_key) {

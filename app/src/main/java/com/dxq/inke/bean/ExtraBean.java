@@ -3,9 +3,10 @@ package com.dxq.inke.bean;
  * Created by CREEPER_D on 2017/8/26.
  */
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ExtraBean {
+public class ExtraBean implements Serializable {
     ArrayList<LabelBean> label;
 
     public ExtraBean(ArrayList<LabelBean> label) {

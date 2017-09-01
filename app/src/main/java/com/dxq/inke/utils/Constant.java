@@ -40,17 +40,17 @@ public class Constant {
     //获得房间内的所有观众头像等信息
     public static final String GET_ROOM_VIEWERS = "api/live/users";
 
-    public static String getScaledImgUrl(String imgUrl, int width, int height) {
-//        图片地址抓包数据示例
-// http://image.scale.inke.com/imageproxy2/dimgm/scaleImage?url=http://img2.inke.cn/MTQ5MjU2MzgwNzQxNiMxMzcjanBn.jpg&w=100&h=100&s=80&c=0&o=0
-        String scaleUrl = "http://image.scale.inke.com/imageproxy2/dimgm/scaleImage?url=%1s&w=%2s&h=%3s&s=80";
-        imgUrl = getEscapeImgUrl(imgUrl);
-        Log.e("xmg", "getScaledImgUrl: " + "" + imgUrl);
-        String format = String.format(scaleUrl, imgUrl, String.valueOf(width), String.valueOf(height));
-        Log.e("xmg", "getScaledImgUrl: " + "" + format);
-        format = getEscapeImgUrl(format);
-        return format;
-    }
+//    public static String getScaledImgUrl(String imgUrl, int width, int height) {
+////        图片地址抓包数据示例
+//// http://image.scale.inke.com/imageproxy2/dimgm/scaleImage?url=http://img2.inke.cn/MTQ5MjU2MzgwNzQxNiMxMzcjanBn.jpg&w=100&h=100&s=80&c=0&o=0
+//        String scaleUrl = "http://image.scale.inke.com/imageproxy2/dimgm/scaleImage?url=%1s&w=%2s&h=%3s&s=80";
+//        imgUrl = getEscapeImgUrl(imgUrl);
+//        Log.e("xmg", "getScaledImgUrl: " + "" + imgUrl);
+//        String format = String.format(scaleUrl, imgUrl, String.valueOf(width), String.valueOf(height));
+//        Log.e("xmg", "getScaledImgUrl: " + "" + format);
+//        format = getEscapeImgUrl(format);
+//        return format;
+//    }
 
     //对Url中的特殊符号做转义，规避加载图片时因为特殊符号不识别而失败
 //    /	    分隔目录和子目录	        %2F（忽略）

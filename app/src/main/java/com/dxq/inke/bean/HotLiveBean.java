@@ -3,7 +3,9 @@ package com.dxq.inke.bean;
  * Created by CREEPER_D on 2017/8/26.
  */
 
-public class HotLiveBean implements TypeBean {
+import java.io.Serializable;
+
+public class HotLiveBean implements TypeBean, Serializable {
 
     CreatorBean creator;
     ExtraBean extra;

@@ -69,9 +69,12 @@ public class HotListAdapter extends MyBaseAdapter<TypeBean> {
         }
         //怎么更新除了轮播图以外的数据呢?
         //遍历mList,将以前的除了轮播图以外的数据统统删除
-        for (TypeBean next : mList) {
+        //遍历集合的时候,不能直接用集合的remove来删除,不然可能会出现并发异常ConcurrentModificationException
+        Iterator<TypeBean> iterator = mList.iterator();
+        while (iterator.hasNext()) {
+            TypeBean next = iterator.next();
             if (next.getType() != TYPE_BANNER) {
-                mList.remove(next);
+                iterator.remove();
             }
         }
         mList.addAll(list);
@@ -80,6 +83,15 @@ public class HotListAdapter extends MyBaseAdapter<TypeBean> {
 
     //更新轮播图的数据
     public void updateBannerData(BannerListBean body) {
+        //需要先把以前的轮播图给移除掉
+        //遍历集合的时候,不能直接用集合的remove来删除,不然可能会出现并发异常ConcurrentModificationException
+        Iterator<TypeBean> iterator = mList.iterator();
+        while (iterator.hasNext()) {
+            TypeBean next = iterator.next();
+            if (next.getType() == TYPE_BANNER) {
+                iterator.remove();
+            }
+        }
         mList.add(0, body);
         notifyDataSetChanged();
     }

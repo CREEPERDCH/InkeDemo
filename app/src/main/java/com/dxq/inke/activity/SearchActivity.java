@@ -21,6 +21,7 @@ import com.dxq.inke.bean.UsersBean;
 import com.dxq.inke.http.ISearchService;
 import com.dxq.inke.http.ServiceGenerator;
 import com.dxq.inke.utils.Constant;
+import com.dxq.inke.utils.ImageUtils;
 import com.dxq.inke.utils.JsonUtils;
 
 import org.json.JSONArray;
@@ -98,6 +99,38 @@ public class SearchActivity extends AppCompatActivity {
                 } else {
                     mClean.setVisibility(View.GONE);
                     mResult.setVisibility(View.GONE);
+                }
+            }
+        });
+        mRecyle.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                switch (newState) {
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+                        //ImageLoader Pausing
+                        ImageUtils.getSingleTon().pause();
+                        break;
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        //ImageLoader Resume
+                        ImageUtils.getSingleTon().restart();
+                        break;
+                }
+            }
+        });
+        mResult.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                switch (newState) {
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+                        //ImageLoader Pausing
+                        ImageUtils.getSingleTon().pause();
+                        break;
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        //ImageLoader Resume
+                        ImageUtils.getSingleTon().restart();
+                        break;
                 }
             }
         });

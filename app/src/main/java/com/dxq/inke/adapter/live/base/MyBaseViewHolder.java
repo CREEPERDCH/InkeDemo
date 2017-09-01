@@ -3,6 +3,7 @@ package com.dxq.inke.adapter.live.base;
  * Created by CREEPER_D on 2017/8/25.
  */
 
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -18,6 +19,7 @@ import com.dxq.inke.bean.BannerBean;
 import com.dxq.inke.utils.FrescoImageLoader;
 import com.dxq.inke.utils.ImageUtils;
 import com.dxq.inke.utils.UIUtlis;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -87,6 +89,11 @@ public class MyBaseViewHolder extends RecyclerView.ViewHolder {
     public void loadImage(int viewId, String url) {
         View view = getView(viewId);
         ImageUtils.getSingleTon().loadImage(view, url);
+    }
+
+    public void setBackground(int viewId, int resId) {
+        View view = getView(viewId);
+        view.setBackgroundResource(resId);
     }
 
     public View getView(int viewId) {
